@@ -235,7 +235,7 @@ def get_pending_reminders():
         cursor.execute('''
             SELECT id, full_name, gender, age, email, disease, complaint, created_at, last_email_sent
             FROM remainders 
-            WHERE datetime(COALESCE(last_email_sent, created_at), '+24 hours') <= datetime('now')
+            WHERE datetime(COALESCE(last_email_sent, created_at), '+1 minute') <= datetime('now')
         ''')
         
         patients = []

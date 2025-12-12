@@ -4,7 +4,7 @@ import google.generativeai as genai
 from flask_cors import CORS
 
 # Configure the generative AI with the API key
-api_key = os.environ.get('API_KEY', 'AIzaSyBGi8v5IpvOSFMbMW2N1dVk_G7lw2jM8Uc')
+api_key = os.environ.get('API_KEY', 'AIzaSyB1MuXzDtpEsJO0Ep_t0bp71ErIf4bgFRo')
 genai.configure(api_key=api_key)
 
 # Initialize Flask app
@@ -105,7 +105,7 @@ def chat():
                     )
 
                     while True:
-                        response = genai.GenerativeModel("gemini-2.0-flash-exp").generate_content(user_prompt)
+                        response = genai.GenerativeModel("gemini-2.5-flash").generate_content(user_prompt)
                         question = response.text.strip()
                         if not is_similar(question, conversation_context["asked_questions"]):
                             conversation_context["asked_questions"].append(question)
@@ -133,12 +133,12 @@ def chat():
                     "4. **Hospitals to Visit**: (list 5 hospitals near the address) "
                 )
                 
-                response = genai.GenerativeModel("gemini-2.0-flash-exp").generate_content(user_prompt)
+                response = genai.GenerativeModel("gemini-2.5-flash").generate_content(user_prompt)
                 
                 # Get nearby hospitals
                 hospitals_prompt = f"List 3-5 reputable hospitals or medical centers near {conversation_context['address']} that have {conversation_context['doctor_type']} specialists."
                 try:
-                    hospitals_response = genai.GenerativeModel("gemini-2.0-flash-exp").generate_content(hospitals_prompt)
+                    hospitals_response = genai.GenerativeModel("gemini-2.5-flash").generate_content(hospitals_prompt)
                     hospitals_text = hospitals_response.text
                 except Exception as e:
                     hospitals_text = "Please consult your local medical directory for nearby healthcare facilities."

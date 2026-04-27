@@ -13,8 +13,8 @@ scheduler = APScheduler()
 scheduler.init_app(app)
 scheduler.start()
 
-genai.configure(api_key="AIzaSyB1MuXzDtpEsJO0Ep_t0bp71ErIf4bgFRo")
-model = genai.GenerativeModel('gemini-2.5-flash')
+genai.configure(api_key="AIzaSyCSNQu7z3t8eHoaO75e2-9VhqsyFFD8EU8")
+model = genai.GenerativeModel('gemini-2.5-flash-lite')
 
 # Database file path
 DB_PATH = 'health.db'

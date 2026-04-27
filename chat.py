@@ -4,7 +4,7 @@ import google.generativeai as genai
 from flask_cors import CORS
 
 # Configure the generative AI with the API key
-api_key = os.environ.get('API_KEY', 'AIzaSyCSNQu7z3t8eHoaO75e2-9VhqsyFFD8EU8')
+api_key = os.environ.get('API_KEY', 'AIzaSyAjvJRzt6nyPid004Doc5Xfjjbn3Wt03Bo')
 genai.configure(api_key=api_key)
 
 # Initialize Flask app

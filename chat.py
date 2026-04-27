@@ -4,7 +4,7 @@ import google.generativeai as genai
 from flask_cors import CORS
 
 # Configure the generative AI with the API key
-api_key = os.environ.get('API_KEY', 'AIzaSyB1MuXzDtpEsJO0Ep_t0bp71ErIf4bgFRo')
+api_key = os.environ.get('API_KEY', 'AIzaSyCSNQu7z3t8eHoaO75e2-9VhqsyFFD8EU8')
 genai.configure(api_key=api_key)
 
 # Initialize Flask app
@@ -133,7 +133,7 @@ def chat():
                     "4. **Hospitals to Visit**: (list 5 hospitals near the address) "
                 )
                 
-                response = genai.GenerativeModel("gemini-2.5-flash").generate_content(user_prompt)
+                response = genai.GenerativeModel("gemini-2.5-flash-lite").generate_content(user_prompt)
                 
                 # Get nearby hospitals
                 hospitals_prompt = f"List 3-5 reputable hospitals or medical centers near {conversation_context['address']} that have {conversation_context['doctor_type']} specialists."
